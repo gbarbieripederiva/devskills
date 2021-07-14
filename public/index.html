@@ -9,28 +9,46 @@
     <script src="index.js" defer></script>
 </head>
 <body>
-    <nav>
-        <a href="">Home</a>
-        <a href="">Other page</a>
+    <nav class="navbar">
+        <button>Home</button>
+        <button>Other page</button>
     </nav>
 
     <main>
-        <form>
-            <input type="text" name="firstname" id="firstname" placeholder="First Name">
-            <input type="text" name="lastname" id="lastname" placeholder="Last Name">
-            <input type="text" name="address" id="address" placeholder="Address">
-            <input type="text" name="ssn" id="ssn" placeholder="SSN">
-        </form>
-        <table>
-            <thead>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Address</th>
-                <th>SSN</th>
-            </thead>
-        </table>
+        <span class="main-body">
+            <form class="members-form" id="addMemberForm">
+                <input type="text" name="firstname" id="firstname" placeholder="First Name">
+                <input type="text" name="lastname" id="lastname" placeholder="Last Name">
+                <input type="text" name="address" id="address" placeholder="Address">
+                <input type="text" name="ssn" id="ssn" placeholder="SSN">
+                <div class="form-footer">
+                    <button type="reset">Reset</button>
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+            <table class="members-table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>SSN</th>
+                    </tr>
+                </thead>
+                <tbody id="memberTbody">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </span>
     </main>
-    <footer>
+
+    <footer class="footer">
         <p>Copyright</p>
         <p>All rights reserved</p>
     </footer>
