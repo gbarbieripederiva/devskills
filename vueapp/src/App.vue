@@ -41,19 +41,4 @@ html,body,#app{
 button{
     cursor: pointer;
 }
-.error-toast {
-    position: fixed;
-    top: 2.5em;
-    right: 1em;
-    padding: 1em 2em;
-
-    background-color: rgb(255, 0, 0);
-    color: white;
-    border-radius: .3em;
-    border: 1px solid black;
-}
-.error-toast p{
-    margin: 0;
-    padding: 0;
-}
 </style>

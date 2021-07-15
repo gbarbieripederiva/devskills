@@ -42,14 +42,16 @@ export default class Main extends Vue{
     handleSubmit(event:Event):void{
         const member = this.member;
         event.preventDefault();
-        try {
-            if(isValidMember(member)){
+        if(isValidMember(member)){
+            try {
                 postMember(member).then(()=>{
                     this.onMemberAdded(member);
                 });       
+            } catch (error) {
+                this.$showErrorToast("Could not upload member")
             }
-        } catch (error) {
-            console.error(error)
+        }else{
+            this.$showErrorToast("Member information is invalid");
         }
     }
 }

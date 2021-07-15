@@ -26,7 +26,7 @@ export default class Main extends Vue{
         try {
             this.members = await getMembers();
         } catch (error) {
-            console.error(error);
+            this.$showErrorToast("Could not get members");
         }
     }
 
