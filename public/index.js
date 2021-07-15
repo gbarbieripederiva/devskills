@@ -1,6 +1,7 @@
 const tableBody = document.querySelector("#memberTbody");
 const addMemberForm = document.querySelector("#addMemberForm");
 const addMemberFormSaveBtn = document.querySelector("#addMemberFormSaveBtn");
+const memberTbodyEmptytr = document.querySelector("#memberTbodyEmptytr");
 const apiUrl = "http://localhost:8081/api";
 
 
@@ -81,7 +82,7 @@ async function main() {
         ).json();
         members.forEach(m => {
             let tr = generateTableRow(m);
-            tableBody.appendChild(tr);
+            tableBody.insertBefore(tr,memberTbodyEmptytr);
         });
     } catch (e) {
         errorToast("Could not get members");
@@ -148,7 +149,7 @@ function handleForm(event){
     if(isValidMember(member)){
         uploadMember(member).then((m)=>{
             let tr = generateTableRow(m);
-            tableBody.appendChild(tr);
+            tableBody.insertBefore(tr,memberTbodyEmptytr);
         }).catch((e)=>{
             errorToast("Could not upload member")
         })

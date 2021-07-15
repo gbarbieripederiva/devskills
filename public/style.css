@@ -103,6 +103,13 @@ main{
 .members-table td {
     border-right: 1px solid black;
     border-left: 1px solid black;
+    padding: 0em 1em;
+}
+.members-table tr{
+    height: 2em;
+}
+#memberTbodyEmptytr{
+    height: auto;
 }
 
 
