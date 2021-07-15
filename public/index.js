@@ -1,5 +1,6 @@
 const tableBody = document.querySelector("#memberTbody");
 const addMemberForm = document.querySelector("#addMemberForm");
+const addMemberFormSaveBtn = document.querySelector("#addMemberFormSaveBtn");
 const apiUrl = "http://localhost:8081/api";
 
 
@@ -88,6 +89,15 @@ async function main() {
     }
 }
 
+function getMemberFromForm(form) {
+    return {
+        firstName:form["firstName"].value,
+        lastName:form["lastName"].value,
+        address:form["address"].value,
+        ssn:form["ssn"].value,
+    }
+}
+
 // validate if member is valid
 function isValidMember(member) {
     if(typeof member !== 'object'){
@@ -132,12 +142,7 @@ async function uploadMember(member) {
 function handleForm(event){
     // prevent default behavior
     event.preventDefault();
-    let member = {
-        firstName:event.target["firstName"].value,
-        lastName:event.target["lastName"].value,
-        address:event.target["address"].value,
-        ssn:event.target["ssn"].value
-    }
+    let member = getMemberFromForm(event.target);
     // check if valid, upload if so, add to table if succeeded 
     // if anything fails show toast
     if(isValidMember(member)){
@@ -153,5 +158,18 @@ function handleForm(event){
 }
 addMemberForm.onsubmit = handleForm;
 
+function updateButton() {
+    console.log("hola")
+    if(!isValidMember(getMemberFromForm(addMemberForm))){
+        addMemberFormSaveBtn.setAttribute("disabled", "true");
+    }else{
+        addMemberFormSaveBtn.removeAttribute("disabled");
+    }
+}
+
+// track changes in the form
+addMemberForm.keypress = updateButton;
+addMemberForm.oninput = updateButton;
+updateButton();
 
 main();
