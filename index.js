@@ -16,8 +16,7 @@ server.use(Restify.plugins.queryParser())
 server.use(Restify.plugins.bodyParser({ mapParams: false }))
 
 server.get("/*",Restify.plugins.serveStatic({
-  directory:'./public',
-  appendRequestPath:false
+  directory:'./public'
 }))
 server.get("/",Restify.plugins.serveStatic({
   directory:"./public",
