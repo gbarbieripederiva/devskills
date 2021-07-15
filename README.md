@@ -34,3 +34,10 @@ La pagina debe poder comunicarse con la API de este repositorio. La misma consta
 * Se puede usar POSTMAN para verificar el funcionamento de la API
 * Crear un archivo README.md para indicar como se debe utilizar su desarrollo
 * Subir a un repositior git con privilegios publicos de lectura y compartir el link como resultado
+
+## Como usar
+Para usar la aplicacion primero instalar las dependencias y luego correr:
+```
+npm run serve
+```
+y acceder a http://localhost:8081
